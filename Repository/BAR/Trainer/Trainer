@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export SCRAM_ARCH="slc5_amd64_gcc462"
+export VO_CMS_SW_DIR="/cms/base/cmssoft"
+export COIN_FULL_INDIRECT_RENDERING=1
+source /cms/base/cmssoft/cmsset_default.sh 
+
+#------------------------------------------
+
+Main_Dir=/cms/kyriacou/PFPho/CUTBasedID/CMSSW_7_0_0/src/GACUTS/BAR/Trainer/
+
+export MYSCRIPT=/cms/kyriacou/PFPho/CUTBasedID/CMSSW_7_0_0/src/GACUTS/BAR/Trainer/Trainer.py
+
+cd $Main_Dir
+
+eval `scram runtime -sh`
+echo "SCRAM_ARCH " $SCRAM_ARCH
+pwd
+
+
+python Trainer.py
+
+
+
+
